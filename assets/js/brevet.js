@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function(el) {
         sortField = document.getElementById('sortField').value;
 
         if (filterValue) {
-            window.location.href = '/' + sortField + '-' + sortOrder + '-' + filterField + '-' + filterValue;
+            window.location.href = sortField + '-' + sortOrder + '-' + filterField + '-' + filterValue;
         } else {
-            window.location.href = '/' + sortField + '-' + sortOrder + '--';
+            window.location.href = sortField + '-' + sortOrder + '--';
         }
         
     }

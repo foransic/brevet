@@ -13,7 +13,7 @@ app.set('views', __dirname + '/views');
 app.use('/assets', express.static(__dirname + '/assets'));
 
 app.get('/', (req, res) => {
-    res.redirect('/date-asc--');
+    res.redirect(config.context + '/date-asc--');
 });
 
 app.get('/:sort-:order-:field?-:value?', (req, res) => {
@@ -138,7 +138,7 @@ loadData = (data, sort, filter, res) => {
         });
     
         res.render('list', {
-            baseUrl : config.baseUrl,
+            baseUrl : config.url + config.context,
             data: result,
             depts: depts.sort(),
             cities : cities.sort(),
@@ -150,7 +150,7 @@ loadData = (data, sort, filter, res) => {
         });
     } else {
         res.render('list', {
-            baseUrl : config.baseUrl,
+            baseUrl : config.url + config.context,
             params : {
                 sort : sort,
                 filter : filter
