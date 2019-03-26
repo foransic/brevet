@@ -1,0 +1,8 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic');
+@font-face {
+    font-family: 'lunaregular';
+    src: url('../fonts/luna-webfont.woff2') format('woff2'),
+         url('../fonts/luna-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

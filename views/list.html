@@ -1,0 +1,76 @@
+{{> header}}
+
+<input type="hidden" id="sortField" value="{{params.sort.field}}" />
+<input type="hidden" id="sortOrder" value="{{params.sort.field}}" />
+
+<table id="result">
+    <tr>
+      <th id="date">
+        <span>Date
+          <a href="/date-asc-{{params.filter.field}}-{{params.filter.value}}" class="fas fa-chevron-up"></a>
+          <a href="/date-desc-{{params.filter.field}}-{{params.filter.value}}"  class="fas fa-chevron-down"></a>    
+        </span>
+      </th>
+      <th>
+        <span>Dépt.
+          <a href="/dept-asc-{{params.filter.field}}-{{params.filter.value}}" class="fas fa-chevron-up"></a>
+          <a href="/dept-desc-{{params.filter.field}}-{{params.filter.value}}"  class="fas fa-chevron-down"></a>
+        </span>
+        <select id="deptSelect">
+          <option value="">---</option>
+          <option value="">Tous</option>
+          {{#depts}}
+          <option value="{{.}}">{{.}}</option>
+          {{/depts}}
+        </select>
+      </th>
+      <th>
+          <span>Ville
+          <a href="/city-asc-{{params.filter.field}}-{{params.filter.value}}" class="fas fa-chevron-up"></a>
+          <a href="/city-desc-{{params.filter.field}}-{{params.filter.value}}"  class="fas fa-chevron-down"></a>
+        </span>
+        <select id="citySelect">
+          <option value="">---</option>
+          <option value="">Tous</option>
+          {{#cities}}
+          <option value="{{.}}">{{.}}</option>
+          {{/cities}}
+        </select>
+      </th>
+      <th>
+          <span>Nom 
+          <a href="/name-asc-{{params.filter.field}}-{{params.filter.value}}" class="fas fa-chevron-up"></a>
+          <a href="/name-desc-{{params.filter.field}}-{{params.filter.value}}"  class="fas fa-chevron-down"></a>
+        </span>
+      </th>
+      <th>Type
+        <select id="typeSelect">
+          <option value="">---</option>
+          <option value="">Tous</option>
+          {{#types}}
+          <option value="{{.}}">{{.}}</option>
+          {{/types}}
+        </select>
+      </th>
+      <th>GPX</th>
+    </tr>
+    {{#data}}
+      <tr data-id="{{id}}" data-latitude="{{lat}}" data-longitude="{{lon}}">
+          <td class="date">{{date}}</td>
+        <td class="department">{{department}}</td>
+        <td class="city">{{city}}</td>
+        <td class="name"><a href="{{url}}" target="_new">{{name}}</a></td>
+        <td class="type">{{type}}</td>
+        <td class="gpx">
+          {{#gpxlist}}
+            <a href="{{.}}" target="_new"><i class="fas fa-download"></i></a>
+          {{/gpxlist}}
+        </td>
+      </tr>
+    {{/data}}
+    {{^data}}
+    <tr><td colspan="6">Aucune donnée</td></tr>
+    {{/data}}
+</table>
+{{> footer}}
+
