@@ -10,7 +10,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 // to be removed in production!
-app.use('/assets', express.static(__dirname + '/assets'));
+app.use(config.context + '/assets', express.static(__dirname + '/assets'));
 
 app.get('/', (req, res) => {
     res.redirect(config.context + '/date-asc--');
